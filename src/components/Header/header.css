@@ -1,0 +1,135 @@
+header{
+    background-color: #0D0D0D;
+}
+
+@media (min-width: 1024px){
+    header{
+        background-image: url(../../img/aa.png);
+        background-size: 500px;
+        background-repeat: no-repeat;
+        background-position: right;
+    }
+
+}
+
+.barra{
+    background-color: rgba(0,0,0, 0.5);
+}
+.text-secondary{
+    color: #138AF2;
+}
+nav a{
+    position: relative;
+    padding: 0 10px;
+}
+
+nav a::after{
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: #C004D9;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: ease-in-out .3s;
+}
+
+nav a:hover::after{
+    width: 100%;
+}
+.fas.fa-chevron-down::before {
+    color: #C004D9;
+    font-size: 40px;
+    animation: down 1.5s infinite;
+}
+@keyframes down {
+    from {
+      opacity: 0;
+      top: -50px;
+    }
+    to {
+      opacity: 1;
+      top: -10px;
+    }
+}
+  
+/*barra*/
+.menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    /* border: 3px solid #fff; */
+}
+.menu-btn__burger {
+    width: 50px;
+    height: 4px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before {
+    transform: translateY(-16px);
+}
+.menu-btn__burger::after {
+    transform: translateY(16px);
+}
+/* ANIMATION */
+.menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+.menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(35px, -35px);    
+}
+.menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+@media (max-width: 1024px){
+    .nav-links{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 100%;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0,0,0, 0.98);
+        font-size: 25px;
+        z-index: 2;
+        padding: 90px 0;
+        transition: 1s ease-in-out;
+    }
+    .nav-links.open{
+        right: 0px;
+    }
+    .nav-links a{
+        text-align: center;
+        width: 90%;
+        padding-bottom: 30px;
+        border-bottom: .1px solid #0D0D0D;
+    }
+    .menu-btn{
+        z-index: 3;
+    }
+}
